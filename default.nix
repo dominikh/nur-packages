@@ -6,7 +6,7 @@
 # commands such as:
 #     nix-build -A mypackage
 
-{ pkgs ? import <nixpkgs> {} }:
+{ pkgs ? import <nixpkgs> { } }:
 
 {
   # The `lib`, `modules`, and `overlay` names are special
@@ -14,5 +14,6 @@
   modules = import ./modules; # NixOS modules
   overlays = import ./overlays; # nixpkgs overlays
 
+  weechatScripts = pkgs.callPackage ./pkgs/weechat/scripts { };
 }
 
